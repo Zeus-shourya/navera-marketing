@@ -140,6 +140,142 @@ def related(root, current):
     )
 
 
+# ---------------------------------------------------------------------------
+# portfolio (src/work.json -> /work/ page + home teaser)
+
+WORK = json.loads((SRC / "work.json").read_text(encoding="utf-8"))
+PROJECTS = WORK["projects"]
+KIND_LABEL = {"client": "Client website", "concept": "Concept demo", "product": "Web app"}
+
+
+def site_host(url):
+    u = urllib.parse.urlparse(url)
+    host = u.netloc.removeprefix("www.")
+    if host.endswith("github.io"):
+        host += "/" + u.path.strip("/").split("/")[0]
+    return host
+
+
+def own_domain(p):
+    return not urllib.parse.urlparse(p["url"]).netloc.endswith("github.io")
+
+
+def where(p):
+    return " &middot; ".join(esc(x) for x in (p["industry"], p.get("city")) if x)
+
+
+def shot_img(root, p, cls="", eager=False, sizes="(max-width: 640px) 92vw, (max-width: 900px) 46vw, 380px"):
+    base = f'{root}assets/img/work/{p["slug"]}'
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    c = f' class="{cls}"' if cls else ""
+    return (f'<img{c} src="{base}-sm.jpg" srcset="{base}-sm.jpg 640w, {base}.jpg 1280w" sizes="{sizes}" '
+            f'width="1280" height="800" alt="{esc(p["name"])} website home page, designed and built by Navera Marketing" {load} decoding="async">')
+
+
+def browser(root, p, **kw):
+    return (f'<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i>'
+            f'<span>{esc(site_host(p["url"]))}</span></div>{shot_img(root, p, **kw)}</div>')
+
+
+def phone_shot(root, p, eager=False):
+    load = "" if eager else ' loading="lazy"'
+    return (f'<div class="mphone"><img src="{root}assets/img/work/{p["slug"]}-m.jpg" width="360" height="780" '
+            f'alt="{esc(p["name"])} website on a phone"{load} decoding="async"></div>')
+
+
+def wa_like(p):
+    return esc(wa_link(0, f"Hi Navera Marketing! I saw the {p['name']} website in your portfolio. I'd like a website like this for my business."))
+
+
+def work_cases(root):
+    out = []
+    for i, p in enumerate([p for p in PROJECTS if p.get("featured")], 1):
+        pts = "".join(f"<li>{icon('check')}<span>{esc(x)}</span></li>" for x in p.get("points", []))
+        tags = "".join(f"<li>{esc(t)}</li>" for t in p["tags"])
+        out.append(
+            f'<article class="case{" case--flip" if i % 2 == 0 else ""}" aria-labelledby="case-{p["slug"]}">'
+            f'<a class="case-media rv" href="{p["url"]}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">'
+            f'{browser(root, p, sizes="(max-width: 900px) 92vw, 640px")}{phone_shot(root, p)}</a>'
+            f'<div class="case-copy rv" style="--d:.1s">'
+            f'<span class="case-num" aria-hidden="true">0{i}</span>'
+            f'<p class="wc-meta">{KIND_LABEL[p["kind"]]} &middot; {where(p)}</p>'
+            f'<h3 id="case-{p["slug"]}">{esc(p["name"])}</h3>'
+            f'<p class="case-sum">{esc(p["summary"])}</p>'
+            f'<ul class="case-pts">{pts}</ul>'
+            f'<ul class="wc-tags">{tags}</ul>'
+            f'<div class="btn-row"><a class="btn btn--chrome btn--sm" href="{p["url"]}" target="_blank" rel="noopener">'
+            f'Visit live site {icon("ext")}</a>'
+            f'<a class="btn btn--ghost btn--sm" href="{wa_like(p)}" target="_blank" rel="noopener">{icon("wa")} I want one like this</a></div>'
+            f'</div></article>'
+        )
+    return "\n".join(out)
+
+
+def work_card(root, p, i, eager=False):
+    tags = "".join(f"<li>{esc(t)}</li>" for t in p["tags"])
+    kind = f'<span class="wc-kind wc-kind--{p["kind"]}">{KIND_LABEL[p["kind"]]}</span>'
+    return (
+        f'<a class="work-card rv" style="--d:{i % 3 * 0.08:.2f}s" href="{p["url"]}" target="_blank" rel="noopener" data-cats="{" ".join(p["cats"])}">'
+        f'<div class="wc-media">{browser(root, p, eager=eager)}{kind}</div>'
+        f'<div class="wc-body"><p class="wc-meta">{where(p)}</p>'
+        f'<h3>{esc(p["name"])} {icon("ext", "ic wc-ext")}</h3>'
+        f'<p>{esc(p["summary"])}</p><ul class="wc-tags">{tags}</ul></div></a>'
+    )
+
+
+def work_grid(root):
+    cards = [work_card(root, p, i) for i, p in enumerate(PROJECTS)]
+    nxt = esc(wa_link(0, "Hi Navera Marketing! I saw your portfolio and I'd like a website for my business."))
+    cards.append(
+        f'<a class="work-card work-card--next rv" href="{nxt}" target="_blank" rel="noopener" data-cats="*">'
+        f'<svg class="spark-big twinkle" aria-hidden="true"><use href="#i-spark"/></svg>'
+        f'<p class="wc-meta">Project {len(PROJECTS) + 1:02d}</p>'
+        f'<h3>Your business, <em class="accent">next.</em></h3>'
+        f'<p>Tell us what you sell and who you sell to. We&rsquo;ll suggest the right kind of website and give you a clear price.</p>'
+        f'<span class="btn btn--chrome btn--sm">{icon("wa")} Start on WhatsApp</span></a>'
+    )
+    return "\n".join(cards)
+
+
+def work_filters():
+    out = []
+    for key, label in WORK["filters"]:
+        n = len(PROJECTS) if key == "all" else sum(key in p["cats"] for p in PROJECTS)
+        out.append(f'<button type="button" class="chip-btn" data-filter="{key}" aria-pressed="{"true" if key == "all" else "false"}">'
+                   f'{esc(label)} <span>{n}</span></button>')
+    return "".join(out)
+
+
+def work_stats():
+    clients = sum(p["kind"] == "client" for p in PROJECTS)
+    stats = [
+        (len(PROJECTS), "projects live online"),
+        (clients, "client brands"),
+        (sum(own_domain(p) for p in PROJECTS), "on their own domain"),
+        (len(WORK["filters"]) - 1, "kinds of business"),
+    ]
+    return "".join(f'<div><b>{n}</b><span>{esc(t)}</span></div>' for n, t in stats)
+
+
+def work_marquee():
+    names = "".join(f"<li>{esc(p['name'])} {icon('spark')}</li>" for p in PROJECTS if p["kind"] == "client")
+    return f'<ul>{names}</ul><ul>{names}</ul>'
+
+
+def work_teaser(root):
+    feat = [p for p in PROJECTS if p.get("featured")][:3]
+    return "\n".join(work_card(root, p, i) for i, p in enumerate(feat))
+
+
+def work_hero(root):
+    by = {p["slug"]: p for p in PROJECTS}
+    a, b, c = (by[s] for s in WORK.get("hero", ["aggarwal-properties", "chaudhary-nutrition", "rohtak-property-point"]))
+    return (f'<div class="work-stack rv" style="--d:.15s" aria-hidden="true">'
+            f'<div class="ws-back">{browser(root, b, sizes="420px")}</div>'
+            f'<div class="ws-front">{browser(root, a, eager=True, sizes="(max-width: 900px) 80vw, 520px")}</div>'
+            f'{phone_shot(root, c, eager=True)}</div>')
+
+
 def faq_block(fm):
     items = fm.get("faq") or []
     if not items:
@@ -222,7 +358,7 @@ def jsonld(fm, url):
         "@type": "WebSite", "@id": BASE + "#website", "url": BASE, "name": site["name"],
         "alternateName": "Navera", "inLanguage": "en-IN", "publisher": {"@id": BASE + "#business"},
     })
-    page_type = {"home": "WebPage", "about": "AboutPage", "contact": "ContactPage", "areas": "CollectionPage"}.get(fm["kind"], "WebPage")
+    page_type = {"home": "WebPage", "about": "AboutPage", "contact": "ContactPage", "areas": "CollectionPage", "work": "CollectionPage"}.get(fm["kind"], "WebPage")
     page = {
         "@type": page_type, "@id": url + "#webpage", "url": url, "name": fm["title"],
         "description": fm["description"], "inLanguage": "en-IN",
@@ -247,6 +383,19 @@ def jsonld(fm, url):
             "audience": {"@type": "BusinessAudience", "name": "Businesses in Sonipat and nearby"},
         })
         page["mainEntity"] = {"@id": url + "#service"}
+    if fm["kind"] == "work":
+        graph.append({
+            "@type": "ItemList", "@id": url + "#projects", "name": "Websites and web apps by Navera Marketing",
+            "numberOfItems": len(PROJECTS),
+            "itemListElement": [
+                {"@type": "ListItem", "position": i, "item": {
+                    "@type": "WebSite", "name": p["name"], "url": p["url"], "description": p["summary"],
+                    "image": BASE + "assets/img/work/" + p["slug"] + ".jpg",
+                    "creator": {"@id": BASE + "#business"}}}
+                for i, p in enumerate(PROJECTS, 1)
+            ],
+        })
+        page["mainEntity"] = {"@id": url + "#projects"}
     if fm.get("faq"):
         graph.append({
             "@type": "FAQPage", "@id": url + "#faq",
@@ -276,6 +425,14 @@ def expand(text, fm, root):
         "{{services-cards}}": services_cards(root),
         "{{services-menu}}": services_menu(root),
         "{{services-list}}": services_list(root),
+        "{{work-cases}}": work_cases(root),
+        "{{work-grid}}": work_grid(root),
+        "{{work-filters}}": work_filters(),
+        "{{work-stats}}": work_stats(),
+        "{{work-marquee}}": work_marquee(),
+        "{{work-teaser}}": work_teaser(root),
+        "{{work-hero}}": work_hero(root),
+        "{{work-count}}": str(len(PROJECTS)),
         "{{insta}}": site["instagram"],
         "{{instahandle}}": site["instagramHandle"],
     }
@@ -419,6 +576,13 @@ def site_files(pages):
         f"- Location: Sonipat, Haryana, India. Serves Sonipat city and Sonipat district ({', '.join(AREAS[1:])}) and works online with brands across India.",
         f"- Contact (WhatsApp and phone): {phones}",
         f"- Instagram: {site['instagram']}",
+        "",
+        "## Portfolio (websites and web apps built by Navera Marketing)",
+        "",
+    ] + [
+        f"- [{p['name']}]({p['url']}) ({KIND_LABEL[p['kind']].lower()}; {', '.join(x for x in (p['industry'], p.get('city')) if x)}): {p['summary']}"
+        for p in PROJECTS
+    ] + [
         "",
         "## Pages",
         "",

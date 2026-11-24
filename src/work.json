@@ -1,0 +1,348 @@
+{
+  "_help": "Portfolio data for /work/ and the home-page teaser. Add a project here, then run `py tools\\shots.py <slug>` to capture its screenshots and `py tools\\build.py` to rebuild. kind: client | concept | product. cats: realestate, build, health, store, 3d, apps. featured: shown as a large case study at the top.",
+  "filters": [
+    [
+      "all",
+      "All work"
+    ],
+    [
+      "realestate",
+      "Real estate & land"
+    ],
+    [
+      "build",
+      "Construction & architecture"
+    ],
+    [
+      "health",
+      "Health & wellness"
+    ],
+    [
+      "store",
+      "Online stores"
+    ],
+    [
+      "3d",
+      "Interactive & 3D"
+    ],
+    [
+      "apps",
+      "Web apps"
+    ]
+  ],
+  "projects": [
+    {
+      "slug": "aggarwal-properties",
+      "name": "Aggarwal Properties",
+      "url": "https://aggarwalpropertiess.com/",
+      "kind": "client",
+      "industry": "Plots & land",
+      "city": "Sonipat",
+      "cats": [
+        "realestate",
+        "3d"
+      ],
+      "featured": true,
+      "summary": "A plot-sales website for a Sonipat land firm with 10+ years and 150+ acres transacted. Every plot from the layout plans is clickable on a live map, showing size, facing, road width and whether it is available, on resale or sold.",
+      "points": [
+        "325 plots mapped from the original layout plans",
+        "Live availability the client updates from a simple editor",
+        "Office map, WhatsApp booking and local SEO"
+      ],
+      "tags": [
+        "Interactive plot maps",
+        "Client editor",
+        "Own domain"
+      ]
+    },
+    {
+      "slug": "rohtak-property-point",
+      "name": "Rohtak Property Point",
+      "url": "https://rohtakpropertypoint.com/",
+      "kind": "client",
+      "industry": "Property dealer",
+      "city": "Rohtak",
+      "cats": [
+        "realestate"
+      ],
+      "featured": true,
+      "summary": "A property dealer's Instagram posters, turned into a searchable website. Each poster became a property card with its price, size and area, so buyers can filter plots, floors, kothis and shops instead of scrolling a feed.",
+      "points": [
+        "111 property listings built from Instagram posts",
+        "Filters by category and area, sorting by price",
+        "Own domain, Facebook and Instagram linked"
+      ],
+      "tags": [
+        "Property listings",
+        "Filters & search",
+        "Own domain"
+      ]
+    },
+    {
+      "slug": "chaudhary-nutrition",
+      "name": "Chaudhary Nutrition",
+      "url": "https://zeus-shourya.github.io/chaudhary-nutrition/",
+      "kind": "client",
+      "industry": "Nutrition & herbal products",
+      "city": "Mohali",
+      "cats": [
+        "health",
+        "store"
+      ],
+      "featured": true,
+      "summary": "A premium redesign of nutritionist Annu Chaudhary's Shopify store. The full catalogue sits in a calm, editorial layout with a Wellness Finder quiz, retouched product photos and checkout that goes straight to the real Shopify cart.",
+      "points": [
+        "218 products pulled from the live store",
+        "Wellness Finder quiz that suggests products",
+        "Shopify checkout plus WhatsApp orders"
+      ],
+      "tags": [
+        "E-commerce redesign",
+        "Product quiz",
+        "Shopify checkout"
+      ]
+    },
+    {
+      "slug": "shubh-awas",
+      "name": "Shubh Awas Properties",
+      "url": "https://shubhawasproperties.com/",
+      "kind": "client",
+      "industry": "Plots, floors & townships",
+      "city": "Rohtak",
+      "cats": [
+        "realestate"
+      ],
+      "summary": "A 21-page website for Jagvender Siwach's firm: residential plots, independent floors and township homes in Rohtak, with project pages for Forteasia, Florence and Omaxe City and guides to the city's main sectors.",
+      "tags": [
+        "21 pages",
+        "Project & area pages",
+        "Investor page"
+      ]
+    },
+    {
+      "slug": "anuj-properties",
+      "name": "Anuj Properties",
+      "url": "https://zeus-shourya.github.io/anuj-properties/",
+      "kind": "client",
+      "industry": "Property dealer",
+      "city": "Sonipat",
+      "cats": [
+        "realestate"
+      ],
+      "summary": "A 22-page website for a Parsvnath City property dealer working since 1998. Area guides for Parsvnath City, Omaxe City and Sonipat, Google reviews, and call or WhatsApp on every page.",
+      "tags": [
+        "22 pages",
+        "Area guides",
+        "Google reviews"
+      ]
+    },
+    {
+      "slug": "navya-properties",
+      "name": "Navya Properties",
+      "url": "https://www.navyaproperty.com/",
+      "kind": "client",
+      "industry": "Agricultural land",
+      "city": "Haryana & Rajasthan",
+      "cats": [
+        "realestate"
+      ],
+      "summary": "Agricultural land, plots and farmhouses across Rohtak, Jhajjar, Hisar and north Rajasthan, presented for serious buyers: every property is walked and title-checked before it is listed.",
+      "tags": [
+        "Land listings",
+        "Own domain",
+        "Local SEO"
+      ]
+    },
+    {
+      "slug": "baba-realty",
+      "name": "BABA Real Estate & Developers",
+      "url": "https://baba-real-estate.in/",
+      "kind": "client",
+      "industry": "Builders & developers",
+      "city": "Sonipat",
+      "cats": [
+        "realestate",
+        "build"
+      ],
+      "summary": "A brand website for Dinesh Garg's development company: residences, plotted land and mixed-use projects in Sonipat, with a direct line to call or WhatsApp the team.",
+      "tags": [
+        "Developer brand",
+        "Own domain",
+        "WhatsApp enquiries"
+      ]
+    },
+    {
+      "slug": "sa-realestate",
+      "name": "SA Real Estate",
+      "url": "https://zeus-shourya.github.io/sa-realestate/",
+      "kind": "client",
+      "industry": "Buy, sell & rent",
+      "city": "",
+      "cats": [
+        "realestate"
+      ],
+      "summary": "A listings website for plots, flats, houses, shops and rentals, built so the owner can update it without code: properties, projects and contact details are edited from a simple online form.",
+      "tags": [
+        "Listings",
+        "Client editor",
+        "Projects"
+      ]
+    },
+    {
+      "slug": "ashish-constructions",
+      "name": "Ashish Constructions",
+      "url": "https://ashishconstruction.com/",
+      "kind": "client",
+      "industry": "Construction company",
+      "city": "Rohtak & Bahadurgarh",
+      "cats": [
+        "build"
+      ],
+      "summary": "A website for a construction company building houses, shops and commercial buildings in Rohtak and Bahadurgarh, with plot and real-estate help for clients starting from scratch.",
+      "tags": [
+        "Construction",
+        "Own domain",
+        "Local SEO"
+      ]
+    },
+    {
+      "slug": "vriksha-saar",
+      "name": "Vrikshā Saār",
+      "url": "https://zeus-shourya.github.io/vriksha-saar/",
+      "kind": "client",
+      "industry": "Architecture & design studio",
+      "city": "Delhi, Sonepat & Rajkot",
+      "cats": [
+        "build"
+      ],
+      "summary": "A portfolio website for an architecture, design and urbanism firm with studios in Delhi, Rajkot and Sonepat: residences, housing, interiors and urban design.",
+      "tags": [
+        "Studio website",
+        "Three cities",
+        "Minimal design"
+      ]
+    },
+    {
+      "slug": "dental-experts",
+      "name": "Dental Experts",
+      "url": "https://sonipatdentalexperts.com/",
+      "kind": "client",
+      "industry": "Dental clinic",
+      "city": "Sonipat",
+      "cats": [
+        "health"
+      ],
+      "summary": "A clinic website for Dr. Amit Malik (BDS, MDS, Micro Endodontist) in Sector 8, Sonipat: root canal, crowns and implants explained simply, with WhatsApp booking open 7 days.",
+      "tags": [
+        "Clinic website",
+        "Own domain",
+        "WhatsApp booking"
+      ]
+    },
+    {
+      "slug": "satyanand-ayurveda",
+      "name": "Satyanand Ayurveda",
+      "url": "https://zeus-shourya.github.io/satyanand-ayurveda/",
+      "kind": "client",
+      "industry": "Ayurvedic products",
+      "city": "Online store",
+      "cats": [
+        "health",
+        "store"
+      ],
+      "summary": "An online Ayurvedic store with categories, a cart, coupon codes and a checkout that sends the full order to the shop on WhatsApp, with Cash on Delivery across India.",
+      "tags": [
+        "Online store",
+        "Cart & coupons",
+        "WhatsApp checkout"
+      ]
+    },
+    {
+      "slug": "jewellery-store",
+      "name": "Gold & Silver Jewellery Store",
+      "url": "https://zeus-shourya.github.io/jewellery-store/",
+      "kind": "concept",
+      "industry": "Jewellery",
+      "city": "Concept store",
+      "cats": [
+        "store"
+      ],
+      "summary": "A maroon-and-gold storefront for a jeweller: bridal sets, bangles, rings and coins with metal and category filters, a purity guide and enquiries that open WhatsApp.",
+      "tags": [
+        "Collection filters",
+        "Purity guide",
+        "WhatsApp enquiries"
+      ]
+    },
+    {
+      "slug": "tower-3d-demo",
+      "name": "Skyline Residency 3D",
+      "url": "https://zeus-shourya.github.io/tower-3d-demo/",
+      "kind": "concept",
+      "industry": "Apartment projects",
+      "city": "Interactive 3D",
+      "cats": [
+        "3d",
+        "realestate"
+      ],
+      "summary": "A real-time 3D sales tool for builders that runs in the browser: orbit the towers, check sunlight at any hour, pick a live unit and see the view from its balcony.",
+      "tags": [
+        "3D in the browser",
+        "Live inventory",
+        "Sunlight study"
+      ]
+    },
+    {
+      "slug": "plot-3d-demo",
+      "name": "Sunrise Enclave 3D Map",
+      "url": "https://zeus-shourya.github.io/plot-3d-demo/",
+      "kind": "concept",
+      "industry": "Plotted townships",
+      "city": "Interactive 3D",
+      "cats": [
+        "3d",
+        "realestate"
+      ],
+      "summary": "A 3D township map for plot sellers: live availability, size, facing, corner and park plots, prices, and a sample home that can be placed on any plot.",
+      "tags": [
+        "3D township map",
+        "Live availability",
+        "Sample homes"
+      ]
+    },
+    {
+      "slug": "yopdfs",
+      "name": "YoPdfs",
+      "url": "https://zeus-shourya.github.io/yopdfs/",
+      "kind": "product",
+      "industry": "PDF & image tools",
+      "city": "Web platform",
+      "cats": [
+        "apps"
+      ],
+      "summary": "25 free PDF and image tools that run entirely in the browser: merge, split, compress, edit and convert to Word, Excel or JPG, with no uploads, no watermark and no sign-up.",
+      "tags": [
+        "25 tools",
+        "Runs in the browser",
+        "No uploads"
+      ]
+    },
+    {
+      "slug": "faceattend",
+      "name": "FaceAttend",
+      "url": "https://zeus-shourya.github.io/faceattend/attendance.html",
+      "kind": "product",
+      "industry": "Staff attendance",
+      "city": "Web app",
+      "cats": [
+        "apps"
+      ],
+      "summary": "An attendance kiosk that runs in the browser: staff check in and out with the date, time and a GPS-stamped photo for each punch, and the records export to CSV.",
+      "tags": [
+        "Attendance kiosk",
+        "Photo + GPS punches",
+        "CSV export"
+      ]
+    }
+  ]
+}

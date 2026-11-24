@@ -1,0 +1,93 @@
+<!--page
+{
+  "path": "work/",
+  "kind": "work",
+  "crumb": "Our Work",
+  "priority": "0.9",
+  "title": "Our Work: Website Design Portfolio | Navera Marketing",
+  "description": "See {{work-count}} live websites and web apps designed and built by Navera Marketing for property dealers, builders, clinics and online stores in Haryana.",
+  "ogKicker": "Our Work · Website Portfolio",
+  "ogHeadline": "Websites that <em>work for their owners.</em>",
+  "faqTitle": "About our <em class=\"accent\">website work</em>",
+  "faq": [
+    ["Are these real, live websites?", "Yes. Every project on this page is live on the internet right now: tap any card to open it in a new tab and try it on your phone. Most are client websites. The ones marked Concept demo or Web app are working builds we made to show what is possible, such as interactive 3D sales tools for builders."],
+    ["How much does a website like these cost?", "Our website packages are Basic at ₹6,999, Catalogue at ₹14,999 (hosting included) and E-commerce at ₹29,999 (hosting and domain included). Interactive plot maps, 3D tools and other custom features are quoted after a short conversation about what you need.\n\nAll prices are negotiable, and GST is extra if applicable."],
+    ["Can I update my website myself?", "Yes, where it helps. Sites such as Aggarwal Properties are connected to a simple online editor, so the owner marks plots as sold or available without touching any code. We can set up the same for your listings, products, prices, photos or contact details."],
+    ["Will my website show up on Google?", "Every website we build includes what Google looks for: page titles and descriptions written for local searches, structured data, a sitemap, and fast, mobile-friendly pages. Rankings also depend on competition and on your Google Business Profile, so we never promise the #1 spot, but we set your site up to compete for it."],
+    ["Do you only make websites for businesses in Sonipat?", "We are based in Sonipat, and our clients are in Sonipat, Rohtak, Bahadurgarh, Mohali, Delhi and beyond. A website can be planned, reviewed and delivered over WhatsApp and calls, wherever your business is."]
+  ]
+}
+-->
+<section class="page-hero" aria-labelledby="pg-title">
+  {{part:silk}}
+  <div class="wrap split split--even">
+    <div>
+      {{crumbs}}
+      <h1 id="pg-title" class="rv"><span class="h1-kicker">Our Work &middot; <i>Portfolio</i></span><span class="chrome">Websites that</span> <em class="accent">work for their owners.</em></h1>
+      <p class="lead rv" style="--d:.1s">Property dealers, builders, clinics, online stores and design studios across Haryana and beyond. Every project on this page is live: open it, scroll it, try it on your phone.</p>
+      <div class="btn-row rv" style="--d:.2s">
+        <a class="btn btn--chrome" href="#projects">See all projects {{icon:arrow}}</a>
+        <a class="btn btn--ghost" href="{{wa:0}}" data-wa>{{icon:wa}} Start your website</a>
+      </div>
+    </div>
+    {{work-hero}}
+  </div>
+  <div class="wrap">
+    <div class="work-stats rv">{{work-stats}}</div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">{{work-marquee}}</div>
+</div>
+
+<section class="section" aria-labelledby="cases-title">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="eyebrow"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg> Featured projects</p>
+      <h2 id="cases-title">Three builds we&rsquo;re <em class="accent">proud of</em></h2>
+      <p class="lead">An interactive plot map, a listings site made from Instagram posters, and a premium online store. Each one solves a real problem for the business behind it.</p>
+    </div>
+    <div class="cases">
+      {{work-cases}}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects" aria-labelledby="all-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="eyebrow"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg> All projects</p>
+      <h2 id="all-title">Every website, <em class="accent">live and clickable</em></h2>
+      <p class="lead">Pick an industry, then tap any project to open the real website in a new tab.</p>
+    </div>
+    <div class="work-filters rv" role="group" aria-label="Filter projects by industry">{{work-filters}}</div>
+    <p class="sr-only" id="work-status" aria-live="polite"></p>
+    <div class="work-grid" id="work-grid">
+      {{work-grid}}
+    </div>
+  </div>
+</section>
+
+<section class="section light" aria-labelledby="every-title">
+  <svg class="spark-deco twinkle" style="left:6%;top:12%;width:34px;height:34px" aria-hidden="true"><use href="#i-spark"/></svg>
+  <svg class="spark-deco twinkle" style="right:7%;bottom:14%;width:24px;height:24px;animation-delay:-1.2s" aria-hidden="true"><use href="#i-spark"/></svg>
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="eyebrow">Built in, every time</p>
+      <h2 id="every-title">What every Navera website <em class="accent">comes with</em></h2>
+    </div>
+    <ul class="feat">
+      <li class="rv">{{icon:mobile}}<h3>Made for phones first</h3><p>Most of your customers will open your site on a phone, so every layout is designed and checked on small screens before anything else.</p></li>
+      <li class="rv" style="--d:.08s">{{icon:seo}}<h3>Ready for Google</h3><p>Titles and descriptions written for local searches, structured data and a sitemap, so Google understands what you do and where.</p></li>
+      <li class="rv" style="--d:.16s">{{icon:wa}}<h3>Enquiries on WhatsApp</h3><p>Call and WhatsApp buttons on every page, with messages that tell you which property, product or service the customer saw.</p></li>
+      <li class="rv">{{icon:bolt}}<h3>Fast and secure</h3><p>Lightweight pages served over HTTPS from a global network, so your site opens quickly even on a weak mobile signal.</p></li>
+      <li class="rv" style="--d:.08s">{{icon:layers}}<h3>Easy to update</h3><p>Where you need it, an online editor for your listings, stock, prices or photos, with no code and no waiting on us.</p></li>
+      <li class="rv" style="--d:.16s">{{icon:globe}}<h3>Your own domain</h3><p>We help you pick and connect a domain like yourbusiness.com, so your brand looks established from day one.</p></li>
+    </ul>
+    <p class="tagline">Websites from <em>&#8377;6,999</em> &middot; <a href="{{root}}website-designing-company-sonipat/">see website packages</a></p>
+  </div>
+</section>
+
+{{faq}}
+{{cta}}

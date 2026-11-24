@@ -20,6 +20,19 @@ powershell -ExecutionPolicy Bypass -File serve.ps1    # preview at http://localh
 - `tools\build.py`: also holds the service list, plan prices (`PLANS`, `WEB_PLANS`) used in schema and llms.txt.
   If prices change, update them there **and** in `pricing.html`, `index.html`, the service pages and the FAQ.
 
+## Portfolio (`/work/`)
+
+- `src\work.json` lists every project (name, live URL, kind, industry, city, filter categories, summary, tags).
+  `featured: true` projects become the big case studies at the top of `/work/` and the 3 cards on the home page.
+- Screenshots live in `src\assets\img\work\` (`<slug>.jpg`, `<slug>-sm.jpg`, `<slug>-m.jpg`). To add or refresh one:
+
+```
+py tools\shots.py <slug>      # captures the live site, desktop + phone (needs Chrome + internet)
+py tools\build.py
+```
+
+- Stats on `/work/` (projects, clients, own domains) are counted from `work.json`, so they stay correct when you add a project.
+
 ## SEO built in
 
 | Page | Target searches |

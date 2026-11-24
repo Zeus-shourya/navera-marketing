@@ -77,6 +77,26 @@
     rv.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* portfolio filters (/work/) */
+  var grid = document.getElementById('work-grid');
+  if (grid) {
+    var btns = document.querySelectorAll('[data-filter]');
+    var status = document.getElementById('work-status');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var f = b.getAttribute('data-filter'), n = 0;
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        grid.querySelectorAll('.work-card').forEach(function (c) {
+          var cats = c.getAttribute('data-cats');
+          var show = f === 'all' || cats === '*' || (' ' + cats + ' ').indexOf(' ' + f + ' ') > -1;
+          c.hidden = !show;
+          if (show) { c.classList.add('in'); if (cats !== '*') n++; }
+        });
+        if (status) status.textContent = n + (n === 1 ? ' project' : ' projects') + ' shown';
+      });
+    });
+  }
+
   /* footer year */
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
