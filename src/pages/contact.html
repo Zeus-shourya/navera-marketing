@@ -1,0 +1,77 @@
+<!--page
+{
+  "path": "contact/",
+  "kind": "contact",
+  "crumb": "Contact",
+  "title": "Contact Navera Marketing, Sonipat | WhatsApp 95881 93144",
+  "description": "Talk to Navera Marketing, a digital marketing agency in Sonipat. WhatsApp or call 95881 93144, 99961 01371 or 91382 78999, or send your brief here.",
+  "ogKicker": "Contact Navera Marketing · Sonipat",
+  "ogHeadline": "Let&rsquo;s build <em>your brand.</em>"
+}
+-->
+<section class="page-hero" aria-labelledby="pg-title" style="padding-bottom:30px">
+  {{part:silk}}
+  <div class="wrap">
+    {{crumbs}}
+    <h1 id="pg-title" class="rv"><span class="h1-kicker">Contact Navera Marketing &middot; <i>Sonipat</i></span><span class="chrome">Let&rsquo;s build</span> <em class="accent">your brand.</em></h1>
+    <p class="lead rv" style="--d:.1s">Tell us about your business, the customers you want to reach and what growth looks like. We&rsquo;ll recommend a practical plan and confirm the scope before any work begins.</p>
+  </div>
+</section>
+
+<section class="section section--tight" aria-label="Contact options" style="padding-top:30px">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <div class="people">
+        <div class="person glass"><div class="who"><small>WhatsApp &amp; call</small><b>+91 {{ph:0}}</b></div><div class="acts"><a class="btn btn--wa btn--sm" href="{{wa:0}}" target="_blank" rel="noopener">{{icon:wa}} Chat</a><a class="btn btn--ghost btn--sm" href="tel:{{tel:0}}" aria-label="Call +91 {{ph:0}}">{{icon:phone}} Call</a></div></div>
+        <div class="person glass"><div class="who"><small>WhatsApp &amp; call</small><b>+91 {{ph:1}}</b></div><div class="acts"><a class="btn btn--wa btn--sm" href="{{wa:1}}" target="_blank" rel="noopener">{{icon:wa}} Chat</a><a class="btn btn--ghost btn--sm" href="tel:{{tel:1}}" aria-label="Call +91 {{ph:1}}">{{icon:phone}} Call</a></div></div>
+        <div class="person glass"><div class="who"><small>WhatsApp &amp; call</small><b>+91 {{ph:2}}</b></div><div class="acts"><a class="btn btn--wa btn--sm" href="{{wa:2}}" target="_blank" rel="noopener">{{icon:wa}} Chat</a><a class="btn btn--ghost btn--sm" href="tel:{{tel:2}}" aria-label="Call +91 {{ph:2}}">{{icon:phone}} Call</a></div></div>
+        <a class="person glass" href="{{insta}}" target="_blank" rel="noopener"><div class="who"><small>Instagram</small><b>{{instahandle}}</b></div><span class="link-arrow">{{icon:insta}} Follow</span></a>
+        <div class="person glass"><div class="who"><small>Based in</small><b>Sonipat, Haryana</b></div><a class="link-arrow" href="{{root}}areas-we-serve/">{{icon:pin}} Areas we serve</a></div>
+      </div>
+    </div>
+    <form class="form glass rv" id="wa-form" data-default="{{waraw:0}}" style="--d:.1s" novalidate>
+      <h2>Send us <em class="accent">your brief</em></h2>
+      <p class="kicker">Fill this in and it opens WhatsApp with your message ready to send.</p>
+      <div class="field-row">
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+      </div>
+      <div class="field"><label for="f-business">Business name</label><input id="f-business" name="business" autocomplete="organization"></div>
+      <div class="field-row">
+        <div class="field"><label for="f-service">Interested in</label>
+          <select id="f-service" name="service">
+            <option value="">Choose a service or plan</option>
+            <option>Essential plan (₹9,999/month)</option>
+            <option>Business Growth plan (₹19,999/month)</option>
+            <option>Premium Growth plan (₹24,999/month)</option>
+            <option>Social media management</option>
+            <option>Reels &amp; video production</option>
+            <option>Graphic design &amp; branding</option>
+            <option>Website development</option>
+            <option>Paid advertising (Meta / Google)</option>
+            <option>SEO &amp; Google Business Profile</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-area">Area</label>
+          <select id="f-area" name="area">
+            <option value="">Where is your business?</option>
+            <option>Sonipat city</option><option>Kundli</option><option>Murthal</option><option>Rai</option><option>Ganaur</option><option>Gohana</option><option>Kharkhoda</option><option>Outside Sonipat</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="f-message">Tell us about your goals</label><textarea id="f-message" name="message" placeholder="What do you sell, who are your customers, and what would you like to grow?"></textarea></div>
+      <div class="field"><label for="f-to">Send to</label>
+        <select id="f-to" name="to">
+          <option value="{{waraw:0}}">+91 {{ph:0}}</option>
+          <option value="{{waraw:1}}">+91 {{ph:1}}</option>
+          <option value="{{waraw:2}}">+91 {{ph:2}}</option>
+        </select>
+      </div>
+      <button class="btn btn--chrome" type="submit" style="width:100%">{{icon:wa}} Send on WhatsApp</button>
+      <p class="note">Nothing is stored on this website. Your message goes straight to our WhatsApp.</p>
+    </form>
+  </div>
+</section>
+
+{{part:steps}}

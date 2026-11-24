@@ -1,0 +1,29 @@
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="{{root}}" aria-label="Navera Marketing home">
+      {{part:logo}}
+    </a>
+    <nav aria-label="Main">
+      <ul class="menu" id="menu">
+        <li class="has-drop">
+          <button class="top" type="button" aria-expanded="false" aria-controls="drop-services">Services {{icon:chev}}</button>
+          <div class="drop" id="drop-services">
+            {{services-menu}}
+          </div>
+        </li>
+        <li><a class="top" href="{{root}}pricing/"{{cur:pricing/}}>Pricing</a></li>
+        <li><a class="top" href="{{root}}about/"{{cur:about/}}>About</a></li>
+        <li><a class="top" href="{{root}}areas-we-serve/"{{cur:areas-we-serve/}}>Areas</a></li>
+        <li><a class="top" href="{{root}}contact/"{{cur:contact/}}>Contact</a></li>
+        <li class="mobile-cta">
+          <a class="btn btn--wa" href="{{wa:0}}" data-wa>{{icon:wa}} WhatsApp us</a>
+          <a class="btn btn--ghost" href="tel:{{tel:0}}">{{icon:phone}} Call {{ph:0}}</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn--chrome btn--sm" href="{{wa:0}}" data-wa>{{icon:wa}} WhatsApp us</a>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
