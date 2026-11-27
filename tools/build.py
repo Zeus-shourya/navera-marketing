@@ -717,7 +717,7 @@ def main():
         make_images(pages)
     if OUT.exists():
         for child in OUT.iterdir():
-            if child.name in ("CNAME",):
+            if child.name == "CNAME" or (child.name.startswith("google") and child.name.endswith(".html")):  # keep CNAME + Search Console verification file
                 continue
             shutil.rmtree(child) if child.is_dir() else child.unlink()
     OUT.mkdir(exist_ok=True)
